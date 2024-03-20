@@ -101,7 +101,7 @@ const Landing = () => {
          <div className='flex flex-col gap-3'>
          <h1 class="text-3xl font-bold dark:text-white">DSA Revison Problem List</h1>
           <div className="w-full max-w-xl flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 dark:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 dark:text-white trans">
            <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
           </svg>
             <input
@@ -124,7 +124,7 @@ const Landing = () => {
               </div>
           <button className='bg-[#00204a] py-[1rem] text-white px-[1.2rem] rounded-lg font-bold py-[1rem] dark:bg-[#ff6464]' onClick={navigate}>Add New Problem</button>
           {!logout && <div className='bg-[#1e549f] rounded-full px-4 py-2 text-white font-bold cursor-pointer dark:bg-[#5be7a9]' onClick={()=>{setlogout(!logout)}}>{User?.username?.charAt(0)?.toUpperCase()}</div>}
-          {logout && <div  className="cursor-pointer flex gap-2"><div className='text-[#888] hover:underline font-bold ' onClick={logoutfunc}>logout</div><svg onClick={()=>{setlogout(!logout)}} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 dark:bg-white dark:rounded-full">
+          {logout && <div  className="cursor-pointer flex gap-2"><div className='text-[#888] hover:underline font-bold ' onClick={logoutfunc}>logout</div><svg onClick={()=>{setlogout(!logout)}} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 dark:bg-white dark:rounded-full trans">
   <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
 </svg>
 </div>

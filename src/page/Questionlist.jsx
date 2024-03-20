@@ -1,6 +1,6 @@
 import React, { useState,CSSProperties, useEffect, memo }  from 'react'
 import Question from './Question'
-import { ColorRing, ThreeDots } from 'react-loader-spinner'
+import {ThreeDots } from 'react-loader-spinner'
 import axios from 'axios'
 import { useRecoilState } from 'recoil'
 import { listcount, reload } from '../Count'
@@ -47,16 +47,17 @@ const Questionlist = memo(function Questionlist({value}) {
   
     if(loader){
        return <div className='flex justify-center items-center h-[50vh]'>
-           <ThreeDots
-       visible={true}
-       height="80"
-       width="80"
-       color="#4fa94d"
-       radius="9"
-       ariaLabel="three-dots-loading"
-       wrapperStyle={{}}
-       wrapperClass=""
-       />
+          <ThreeDots
+          className='.trans'
+  visible={true}
+  height="80"
+  width="80"
+  color="#4fa94d"
+  radius="9"
+  ariaLabel="three-dots-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  />
        </div>
     }
 

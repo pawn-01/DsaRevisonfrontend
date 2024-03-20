@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
+@layer components {
     .Act{
         background-color: #ff0000;
         color: white;
@@ -56,6 +56,10 @@
      *{
         margin: 0;
         padding: 0;
-         @apply transition-all duration-300;
+       @apply transition-colors duration-300; 
      }   
+
+     .trans{
+        @apply transition-transform duration-300;
+     }
 }

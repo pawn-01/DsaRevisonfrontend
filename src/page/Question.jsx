@@ -45,7 +45,7 @@ const Question = ({i,_id,url,title,tags,revisionCount,difficulty}) => {
         <div  class="text-sm font-medium text-gray-600 dark:text-[#d9f2ff]">
           Revise count {revisionCount}
         </div>
-        <svg onClick={update} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 cursor-pointer dark:bg-[#d9f2ff] dark:rounded-full">
+        <svg onClick={update} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 cursor-pointer dark:bg-[#d9f2ff] dark:rounded-full trans">
   <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
 </svg>
         </div>
