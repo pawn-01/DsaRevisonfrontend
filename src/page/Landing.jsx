@@ -33,10 +33,16 @@ const Landing = () => {
      const [logout, setlogout] = useState(false);
      const [name, setname] = useState("");
      const debouncy = usedebounce(name,500);
-     const[Theme,setTheme] = useState('light');
+     const[Theme,setTheme] = useState();
  
 
      useEffect(() => {
+         if(!localStorage.getItem('theme')){
+             setTheme(localStorage.setItem('theme','light'));
+         }
+         else{
+          setTheme(localStorage.getItem('theme'));
+         }
          async function Profie(){
           const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/profile`,{},{headers:{token:localStorage.getItem('token')}})
           if(res.data.a==0){
@@ -52,9 +58,11 @@ const Landing = () => {
 
      function changetheme(){
        if(Theme=="light"){
+          localStorage.setItem('theme','dark');
           setTheme("dark")
        }
        else{
+        localStorage.setItem('theme','light');
           setTheme("light")
        }
      }
@@ -116,7 +124,7 @@ const Landing = () => {
               </div>
           <button className='bg-[#00204a] py-[1rem] text-white px-[1.2rem] rounded-lg font-bold py-[1rem] dark:bg-[#ff6464]' onClick={navigate}>Add New Problem</button>
           {!logout && <div className='bg-[#1e549f] rounded-full px-4 py-2 text-white font-bold cursor-pointer dark:bg-[#5be7a9]' onClick={()=>{setlogout(!logout)}}>{User?.username?.charAt(0)?.toUpperCase()}</div>}
-          {logout && <div  className="cursor-pointer flex gap-2"><div className='text-[#888] hover:underline font-bold ' onClick={logoutfunc}>logout</div><svg onClick={()=>{setlogout(!logout)}} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 dark:bg-white">
+          {logout && <div  className="cursor-pointer flex gap-2"><div className='text-[#888] hover:underline font-bold ' onClick={logoutfunc}>logout</div><svg onClick={()=>{setlogout(!logout)}} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 dark:bg-white dark:rounded-full">
   <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
 </svg>
 </div>
