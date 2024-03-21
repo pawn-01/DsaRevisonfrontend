@@ -13,7 +13,6 @@ const Questionlist = memo(function Questionlist({value}) {
     const [queslist, setqueslist] = useState([]);
     const[count,setcount] = useRecoilState(listcount);
     const [Reload, setReload] = useRecoilState(reload);
-    var i = 1;
 
 
     function handlepage(pagenumber){
@@ -62,14 +61,14 @@ const Questionlist = memo(function Questionlist({value}) {
     }
 
     if(!loader && queslist.length==0){
-        return <div className='font-bold text-center'>No question is in your list.<br/> plz add question</div>
+        return <div className='font-bold text-center dark:text-white'>No question is in your list.<br/> plz add question</div>
     }
 
    const array = pageindex.slice(Math.max(0,currentpage-2),Math.min(nofpage,currentpage+3))
   return (
      <>
-       {rows.length>0 && rows.map(list=>(
-      <Question {...list} i={i++} />
+       {rows.length>0 && rows.map((list,i)=>(
+      <Question {...list} i={i+currentpage*itemsperpage+1}/>
         ))}
         <div className='flex justify-center items-center cursor-pointer'>
           <svg onClick={()=>{handlepage(currentpage-1)}} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 bg-[#888]">

@@ -2,14 +2,14 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil';
-import { listcount, reload } from '../Count';
+import { indx, listcount, reload } from '../Count';
 
 const Question = ({i,_id,url,title,tags,revisionCount,difficulty}) => {
      const navi = useNavigate();
      //const [ques, setques] = useState(0);
+    // const[i , seti] = useRecoilState(indx)
      const [count,setcount] = useRecoilState(reload);
     const tagarray = tags.split(","); 
-
 
     async function Remove(){
          const res = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/delete/${_id}`,{headers:{token:localStorage.getItem('token')}})
